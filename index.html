@@ -3,12 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
+  <title>Jigsaw Puzzle</title>
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
+  <div id="app-container">
+    <h1>Jigsaw Puzzle</h1>
+    <div id="reference-container">
+      <img id="puzzle-image" src="" alt="Puzzle Image" style="display: none;">
+    </div>
+    <div id="puzzle-board"></div>
+    <div id="pieces-container"></div>
+    <div id="control-panel">
+        <button id="toggle-image-button" class="control-button">Load Image</button>
+        <input type="file" id="image-input" accept="image/*" style="display: none;">
+        <div class="slider-container">
+            <label for="difficulty-slider">Pieces:</label>
+            <input type="range" id="difficulty-slider" min="2" max="10" value="4" class="slider">
+            <span id="difficulty-label">4x4</span>
+        </div>
+        <button id="shuffle-button" class="control-button">Shuffle</button>
+        <button id="solve-button" class="control-button">Solve</button>
+    </div>
+  </div>
   <script defer type="text/javascript" src="/main.js"></script>
 </body>
 </html>

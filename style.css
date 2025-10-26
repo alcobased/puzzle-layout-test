@@ -1,10 +1,19 @@
+:root {
+  --bg-color-start: oklch(15% 0 0);
+  --bg-color-end: oklch(22% 0 0);
+  --surface-1: oklch(25% 0 0);
+  --surface-2: oklch(30% 0 0);
+  --text-color: oklch(95% 0 0);
+  --glow-color: oklch(75% 0.2 150); /* A subtle, cool green for glow effects */
+}
+
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to right, #6a11cb, #2575fc);
-  color: white;
+  background: linear-gradient(to right, var(--bg-color-start), var(--bg-color-end));
+  color: var(--text-color);
   text-align: center;
   overflow: hidden; /* Prevent scrolling on the body */
 }
@@ -23,15 +32,12 @@ body, html {
 h1 {
     font-size: 3.5rem;
     margin-bottom: 0;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
-    background: rgba(0,0,0,0.1);
-    padding: 1rem 2rem;
-    border-radius: 12px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
     flex-shrink: 0; /* Prevent title from shrinking */
 }
 
 #image-container {
-    border: 5px solid #fff;
+    border: 2px solid var(--surface-2);
     padding: 10px;
     width: 90%;
     max-width: 800px; /* Optional: constrain max width on large screens */
@@ -41,28 +47,50 @@ h1 {
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.25);
-    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 10px 10px rgba(0,0,0,0.3);
+    background-color: var(--surface-1);
     margin-bottom: 0;
+    position: relative; /* Add this to position the overlay correctly */
+}
+
+#image-overlay {
+    position: absolute;
+    top: 10px; /* Match the padding of the container */
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px; /* Match the image's border-radius */
+    cursor: crosshair;
 }
 
 #puzzle-image {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     border-radius: 5px;
 }
 
+.click-circle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--glow-color);
+    box-shadow: 0 0 8px var(--glow-color);
+    transform: translate(-50%, -50%); /* Center the circle on the click coordinates */
+}
+
 #control-panel {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--surface-1);
   padding: 1.5rem;
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  border: 2px solid var(--surface-2);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 10px 10px rgba(0,0,0,0.3);
   width: 90%;
   max-width: 800px; /* Match image-container */
   box-sizing: border-box;
@@ -70,19 +98,18 @@ h1 {
 }
 
 .control-button {
-    background-color: #4a6fa5;
-    color: white;
+    background-color: var(--surface-2);
+    color: var(--text-color);
     border: none;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
 }
 
 .control-button:hover {
-    background-color: #5a82c4;
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.5), 0 0 15px var(--glow-color), 0 0 25px var(--glow-color);
 }

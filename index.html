@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jigsaw Puzzle</title>
+  <title>Image Containment Test</title>
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
   <div id="app-container">
-    <h1>Jigsaw Puzzle</h1>
+    <h1>Dynamic Image Containment</h1>
     <div id="image-container">
       <img id="puzzle-image" src="" alt="Puzzle Image" style="display: none;">
+      <div id="image-overlay"></div>
     </div>
     <div id="control-panel">
         <button id="toggle-image-button" class="control-button">Load Image</button>
+        <button id="reset-circles-button" class="control-button">Reset Circles</button>
         <input type="file" id="image-input" accept="image/*" style="display: none;">
     </div>
   </div>

@@ -77,6 +77,9 @@ imageInput.addEventListener('change', (event) => {
             puzzleImage.src = e.target.result;
         };
         reader.readAsDataURL(file);
+
+        // Reset the input value to allow the same file to be loaded again
+        event.target.value = null;
     }
 });
 

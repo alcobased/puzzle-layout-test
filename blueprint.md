@@ -19,7 +19,7 @@ This document outlines the design and features of a web application designed to 
     *   Interactive elements like the "Load Image" button have hover effects, including a transform and a subtle green "glow" to provide clear user feedback.
 *   **Functionality:**
     *   **Placeholder Image:** A blueprint-style placeholder image with a grid pattern is displayed by default and when no user image is loaded, ensuring the application is always interactive.
-    *   **Image Loading:** Users can click the "Load Image" button to open a file dialog and select an image from their local machine. The button text dynamically changes to "Clear Image" when a user image is displayed.
+    *   **Image Loading:** Users can click the "Load Image" button to open a file dialog and select an image from their local machine. The button text dynamically changes to "Clear Image" when a user image is displayed. The file input is reset after each selection to allow the same file to be loaded consecutively.
     *   **Dynamic Containment:** The selected image is displayed within the `image-container`. It is scaled up or down to fit perfectly within the container while maintaining its aspect ratio, using the `object-fit: contain` property.
     *   **Persistent and Dynamic Image Overlay:** A semi-transparent overlay is always present. Its size and position are dynamically updated via JavaScript to perfectly match the rendered dimensions and position of the displayed image (or placeholder), even when the window is resized.
     *   **Clickable Overlay:** The overlay is interactive. Clicking on it creates a small, glowing circle at the click location.
@@ -49,5 +49,6 @@ This document outlines the design and features of a web application designed to 
 11. **Make overlay persistent:** Modified the CSS and JavaScript to make the overlay a permanent, always-visible feature.
 12. **Implement dynamic circle placement:** Updated the JavaScript to calculate and store circle positions as percentages.
 13. **Fix circle placement bug:** Implemented a robust solution by calculating the precise rendered geometry of the image, accounting for aspect ratio differences and letterboxing/pillarboxing. This ensures clicks are only registered within the image bounds and that circle positions are perfectly maintained during resizing.
-14. **Implement Placeholder:** Added a placeholder image when no user image is loaded to ensure interactivity.
+1t. **Implement Placeholder:** Added a placeholder image when no user image is loaded to ensure interactivity.
 15. **Style Placeholder:** Updated the placeholder to a blueprint-style grid design.
+16. **Fix Image Reload Bug:** Reset the file input after each selection to allow the same file to be loaded multiple times.

@@ -73,27 +73,35 @@ h1 {
     flex-shrink: 0; /* Prevent title from shrinking */
 }
 
+#puzzle-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 90%;
+    max-width: 800px;
+    flex-grow: 1;
+    min-height: 0; /* Important for flex-grow in a column */
+}
+
 #image-container {
     border: 2px solid var(--surface-2);
     padding: 10px;
-    width: 90%;
-    max-width: 800px; /* Optional: constrain max width on large screens */
-    flex-grow: 1; /* This makes the container expand */
-    min-height: 0; /* Necessary for flex-grow to work correctly in a column flex container */
+    width: 100%;
+    flex-grow: 1; 
+    min-height: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 10px 10px rgba(0,0,0,0.3);
     background-color: var(--surface-1);
-    margin-bottom: 0;
-    position: relative; /* Add this to position the overlay correctly */
+    position: relative; 
+    box-sizing: border-box;
 }
 
 #image-overlay {
     position: absolute;
-    /* background-color: rgba(0, 0, 0, 0.5); */
-    border-radius: 5px; /* Match the image's border-radius */
+    border-radius: 5px; 
     cursor: crosshair;
 }
 
@@ -111,7 +119,7 @@ h1 {
     border-radius: 50%;
     background-color: var(--glow-color);
     box-shadow: 0 0 8px var(--glow-color);
-    transform: translate(-50%, -50%); /* Center the circle on the click coordinates */
+    transform: translate(-50%, -50%); 
 }
 
 #control-panel {
@@ -124,10 +132,9 @@ h1 {
   gap: 1.5rem;
   border: 2px solid var(--surface-2);
   box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 10px 10px rgba(0,0,0,0.3);
-  width: 90%;
-  max-width: 800px; /* Match image-container */
+  width: 100%;
   box-sizing: border-box;
-  flex-shrink: 0; /* Prevent control panel from shrinking */
+  flex-shrink: 0; 
 }
 
 .control-button {

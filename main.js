@@ -1,3 +1,4 @@
+
 const imageInput = document.getElementById('image-input');
 const toggleImageButton = document.getElementById('toggle-image-button');
 const puzzleImage = document.getElementById('puzzle-image');
@@ -40,19 +41,11 @@ function updateOverlayPosition() {
 
     imageOverlay.style.display = 'block';
 
-    // Get the rendered dimensions and position of the image
-    const imgRect = puzzleImage.getBoundingClientRect();
-    const containerRect = puzzleImage.parentElement.getBoundingClientRect();
-
-    // Calculate position relative to the container
-    const top = imgRect.top - containerRect.top;
-    const left = imgRect.left - containerRect.left;
-
     // Apply the dimensions and position to the overlay
-    imageOverlay.style.width = `${imgRect.width}px`;
-    imageOverlay.style.height = `${imgRect.height}px`;
-    imageOverlay.style.top = `${top}px`;
-    imageOverlay.style.left = `${left}px`;
+    imageOverlay.style.width = `${puzzleImage.offsetWidth}px`;
+    imageOverlay.style.height = `${puzzleImage.offsetHeight}px`;
+    imageOverlay.style.top = `${puzzleImage.offsetTop}px`;
+    imageOverlay.style.left = `${puzzleImage.offsetLeft}px`;
 }
 
 toggleImageButton.addEventListener('click', () => {
